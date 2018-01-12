@@ -1,0 +1,22 @@
+.admin-body {
+	background-color: #7CC87E;
+}
+
+.admin-footer {
+	background-color: white;
+}
+.section-admin {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.img-admin {
+	width: 40px;
+	height: 40px;
+	margin-top:-10px;
+}
+
+.logo {
+	width: 100px;
+	height: 100px;
+}
