@@ -34,7 +34,8 @@ class User extends Authenticatable
 
 	public function typeUser()
 	{
-		$this->type = 'admin';
-		return $this->type === 'admin';
+		if ($this->type == 'admin') {
+			return $this->type === 'admin';
+		}
 	}
 }

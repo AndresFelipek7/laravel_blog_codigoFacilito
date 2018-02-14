@@ -2,6 +2,7 @@
 
 @section('content')
 	{{-- <h3 class="title-front left">{{ trans('app.title_last_articles') }}</h3> --}}
+	<h2><a href="{{ route('login') }}">Login</a></h2><br>
 
 	<div class="row">
 		<div class="col-md-8">

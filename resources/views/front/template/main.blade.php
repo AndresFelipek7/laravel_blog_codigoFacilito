@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 	<meta charset="UTF-8">
-
 	<title>@yield('title', 'Home') | Blog Facilito</title>
 	<link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/journjal/bootstrap.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/general.css')}}">
 	<link rel="stylesheet" href="{{ asset('plugins/font-awesome-4.6.3/css/font-awesome.min.css') }}">
 </head>
 <body>
-
 	<header>
 		@include('front.template.partials.header')
+
 	</header>
 
 	<div class="container">

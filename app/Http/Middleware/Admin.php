@@ -22,17 +22,12 @@ class Admin
 	 */
 	public function handle($request, Closure $next)
 	{
-		/*if ($this->auth->user()->typeUser()) {
+		if ($this->auth->user()->typeUser() == 'admin') {
 			return $next($request);
 		}else {
-			dd("El usuario no es administrador , es solo miembro");
-		}*/
-
-		if (1 == 2) {
-			dd("Es correcto ha entrado al lado verdadero y por aca va ha entrar el admin solamente");
-		}else {
-			abort(503);
+			dd("No es el Admin");
 		}
-		/*return $next($request);*/
+
+		return $next($request);
 	}
 }

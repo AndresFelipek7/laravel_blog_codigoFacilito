@@ -34,24 +34,11 @@ Route::get('articles/{slug}' , [
 
 
 //RUTAS DEL PANEL DE ADMINISTRACION
-/*Route::group(['prefix' => 'admin' , 'middleware' => ['auth']] , function (){*/
 Route::group(['prefix' => 'admin' , 'middleware' => ['admin']] , function (){
 	Route::get('/' , ['as' => 'admin.index' , function (){
 		return view('admin.index');
 	}]);
 
-
-	/*
-	//Esta es la forma de por hacer hacer el filtro en las rutas donde solo cuando cumpla el filtro del middlware admin puede ver est grupo de rutas de usuarios sino va ha permanecer oculto
-	Route::group(['middleware' => 'admin'] , function(){
-
-		Route::resource('users','UsersController');
-		Route::get('users/{id}/destroy' , [
-			'uses' => 'UsersController@destroy',
-			'as' => 'admin.users.destroy'
-		]);
-
-	});*/
 
 	Route::resource('users','UsersController');
 	Route::get('users/{id}/destroy' , [
@@ -82,3 +69,22 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['admin']] , function (){
 		'as' => 'admin.images.index'
 	]);
 });
+
+/*Auth::routes();*/
+
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+// Password Reset Routes...
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+Route::get('/home', 'UsersController@index')->name('home')->middleware('admin');
