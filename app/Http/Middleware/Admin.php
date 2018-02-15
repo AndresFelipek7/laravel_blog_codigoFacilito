@@ -22,10 +22,10 @@ class Admin
 	 */
 	public function handle($request, Closure $next)
 	{
-		if ($this->auth->user()->typeUser() == 'admin') {
+		if ($this->auth->user()->admin()) {
 			return $next($request);
 		}else {
-			dd("No es el Admin");
+			abort(503);
 		}
 
 		return $next($request);
